@@ -1,0 +1,45 @@
+<div class="loginpage">
+  <mat-card >
+      <form [formGroup]="loginForm">
+    <mat-card-header fxLayout="column" fxLayoutAlign="space-around center">
+            <img mat-card-image src="/assets/image/login.jpeg">
+      <mat-card-title fxLayoutAlign="center center">Login Page</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="enter email" formControlName="email">
+            <mat-icon matSuffix>mail_outline</mat-icon>
+             <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                     You must enter a value</mat-error>
+                <mat-error *ngIf="loginForm.get('email').hasError('email')">
+                    You must enter a valid email</mat-error>
+        </mat-form-field>
+
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input [type]="hide ? 'text' : 'password'" matInput placeholder="enter password" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                    </button> 
+                    <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                            You must enter a value</mat-error>
+                            <mat-error *ngIf="loginForm.get('password').hasError('pattern')">
+                                You must enter a value</mat-error>
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <button mat-raised-button color="accent" [disabled]="!loginForm.valid" (click)='onSubmit()'>Login</button>
+            <nav>
+                <a  routerLink="/register"
+                 style="margin-left: 16px;">register</a>
+            </nav>
+            <nav>
+                <a routerLink="/forget" style="margin-left: 16px;">forgot</a>
+            </nav>
+        </div>
+    </mat-card-content>
+</form>
+  </mat-card>
+</div>

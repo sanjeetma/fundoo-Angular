@@ -1,0 +1,29 @@
+<div>
+<mat-card>
+    <form [formGroup]="resetForm">
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
+            <img mat-card-image src="/assets/image/resetPassword.jpeg">
+            <h2>{{message}}</h2>
+            <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hide1 ? 'text' : 'password'" matInput placeholder="enter password" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide1 = !hide1" >
+                            <mat-icon>{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+                            </button>
+                </mat-form-field>
+        
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input [type]="hide ? 'text' : 'password'" matInput placeholder="enter same password" formControlName="confirmPassword">
+                    <button mat-icon-button matSuffix (click)="hide = !hide">
+                            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                            </button>
+                </mat-form-field>
+                <div>
+                        <button mat-raised-button color="accent" (click)="onReset()">Submit</button>
+                </div>
+    </mat-card-content>
+</form>
+</mat-card>    
+</div>
+<!-- [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" -->

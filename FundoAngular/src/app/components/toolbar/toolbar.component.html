@@ -1,0 +1,139 @@
+<div class="maindiv">
+        <div class="toolicon">
+                <!-- (click)="reminder()" -->
+                <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+                    <img id="keep-icon1" mat-card-image src="/assets/icons/notifications_paused-24px.svg" />
+                </button>
+                <mat-menu #menu2="matMenu">
+                    <button class="reminder-button" mat-menu-item (click)="reminder('today',noteData.noteId)">
+                        <span>Later today</span><span class="span2">8:00pm</span>
+                    </button>
+        
+                    <button class="reminder-button" mat-menu-item (click)="reminder('tomorrow',noteData.noteId)">
+                        <span>Tomorrow</span><span class="span2">8:00pm</span>
+                    </button>
+        
+                    <button class="reminder-button" mat-menu-item (click)="reminder('next-week',noteData.noteId)">
+                        <span>Next week</span><span class="span2">Mon,8:00am</span>
+                    </button>
+                    <button mat-menu-item>
+                        <label class="input-wrapper">
+                            <input placeholder="Peak date & time" [(ngModel)]="dateTime" [owlDateTimeTrigger]="dt"
+                                [owlDateTime]="dt">
+                            <owl-date-time #dt></owl-date-time>
+                            <button mat-icon-button (click)="reminder('pickdate',noteData.noteId)">
+                                <mat-icon>schedule</mat-icon>
+                            </button>
+                        </label>
+                    </button>
+                </mat-menu>
+            </div>
+        
+
+    <div class="toolicon">
+        <button mat-icon-button (click)='openDialog()'>
+            <img id="keep-icon1" mat-card-image src="/assets/icons/person_add-24px.svg" />
+        </button>
+    </div>
+
+    <!-- <div class="toolicon">
+        <button mat-icon-button>
+            <img id="keep-icon1" mat-card-image src="/assets/icons/color_lens-24px.svg" />
+        </button>
+    </div> -->
+    <div class="toolicon">
+            <!-- (click)="changeColor()" -->
+            <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
+                <img id="keep-icon1" mat-card-image src="/assets/icons/color_lens-24px.svg" />
+            </button>
+            <mat-menu  #menu1="matMenu" yPosition="above">
+                <div *ngFor="let rowcolors of colors" fxLayout="row">
+                    <div   *ngFor="let colorEach of rowcolors">
+                        <!-- <div mat-menu-item> -->
+                            <button mat-mini-fab fxLayout="row"  [ngStyle]="{'background-color':colorEach.value}"
+                                (click)="changeColor(colorEach.value, noteData)" class="color-menu"></button>
+                        <!-- </div> --> 
+                    </div>
+                </div>
+            </mat-menu>
+        </div>
+
+    <div class="toolicon">
+        <!-- (click)="#" -->
+        <button mat-icon-button>
+            <img id="keep-icon1" mat-card-image src="/assets/icons/insert_photo-24px.svg" />
+        </button>
+    </div>
+
+    <div class="toolicon">
+        <button mat-icon-button (click)="archive(noteData.noteId)">
+            <img id="keep-icon1" mat-card-image src="/assets/icons/archive-24px.svg" />
+        </button>
+    </div>
+
+    <div class="toolicon">
+        <button class="menuicon" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+
+    <div>
+        <mat-menu #menu="matMenu">
+
+            <button mat-menu-item (click)='addToTrash(noteData.noteId)'>
+                <span>Delete note</span>
+            </button>
+
+            <button mat-menu-item [matMenuTriggerFor]="beforeMenu" (click)="getAllLabel()">
+                <span>Add label</span>
+            </button>
+
+            <button mat-menu-item>
+                <span>Change labels</span>
+            </button>
+
+            <button mat-menu-item>
+                <span>Add drawing</span>
+            </button>
+
+            <button mat-menu-item>
+                <span>Make a copy</span>
+            </button>
+
+            <button mat-menu-item>
+                <span>Copy to Google Docs</span>
+            </button>
+            <div>
+                <mat-menu #beforeMenu="matMenu">     
+                        <div>
+                            <div class="header">
+                                <form [formGroup]="labelForm">
+                                    <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="enter label name" formControlName="label" (click)="$event.stopPropagation()" [(ngModel)]="inputdata">
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="main">
+                            <mat-selection-list  *ngFor="let label of labelList" (click)="$event.stopPropagation()">
+                                    
+                                    <mat-list-option (click)="onPost(label)">
+                                    <span class="labellist"> {{label.label}} </span>     
+                                    </mat-list-option>
+                                    
+                                  </mat-selection-list>
+                                </div>
+                                <div class="footer">
+                                        <button mat-icon-button (click)="onAddLabelToNote()">
+                                            <mat-icon>add</mat-icon>
+                                            <span>Create</span>
+                                            <span> "{{inputdata}}"</span>
+                                        </button>
+                                </div>
+                        </div>
+                    <!-- </div> -->
+                </mat-menu>
+
+            </div>
+        </mat-menu>
+    </div>
+</div>

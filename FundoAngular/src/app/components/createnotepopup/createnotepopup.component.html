@@ -1,0 +1,42 @@
+<!-- <div class="search-div">
+        <mat-card class="search-bar">
+                        <mat-card-header>
+                <input class="form-control" type="text" name="search" autocomplete="off"
+                        placeholder="title">
+                <button class="search-button" mat-icon-button>
+                        <mat-icon matSuffix><img src="/assets/icons/check_box.svg"></mat-icon>
+                </button>
+                </mat-card-header>
+        <mat-card-content class="textareaContent">
+                        <textarea matInput style="width: 400px;"
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="1"
+                        cdkAutosizeMaxRows="auto">Take a note...</textarea>
+        </mat-card-content>
+        </mat-card>
+        <!-- <div>  <app-iconlist></app-iconlist> </div> 
+    </div>
+-->
+
+<div class="flex-container"  >
+    <div  >
+            <mat-card  class="matcard-box"  >
+                    <mat-card-header>
+                            <mat-card-title style="display: flex;" >
+                                        <input class="form-control" type="text" style="width:350px;margin-left:-15px; height:20px; border: none;outline: none;"
+                                        placeholder="Title">
+                                <button class="search-button" mat-icon-button style="margin-top: -9px;">
+                                        <mat-icon matSuffix><img src="/assets/icons/check_box.svg"></mat-icon>
+                                </button>      
+                            </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content >
+                                <textarea matInput style="width:350px;border: none;outline: none;"
+                                cdkTextareaAutosize placeholder="Take a note..."
+                                cdkAutosizeMaxRows="25"></textarea>
+                    </mat-card-content>
+                    <button (click)="onReturn()">close</button>
+            </mat-card>
+    </div>
+</div>

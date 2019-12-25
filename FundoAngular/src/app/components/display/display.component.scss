@@ -1,0 +1,40 @@
+
+  .matcard-box{
+    margin: 10px;
+    width:250px;
+    border:1px solid rgb(229, 241, 219);
+    border-radius: 5%;
+    .note-toolbar{
+      visibility: hidden;
+    }
+  }
+
+.matcard-box:hover{
+  .note-toolbar{
+    visibility: visible;
+  }
+}
+  .flex-container {
+    display: flex;
+    margin-left: 4.5vw;                                                                                                                                                                                                                                                                                                                                                               
+    //margin-right: auto;
+    flex-wrap: wrap;
+    background-color: white;                                                                                                                                                                                                                                                                                                                                                             
+  }
+  .textarea_list{
+    width: 200px;
+  }
+  .textarea_list{
+border: none;
+outline: none;
+  }
+  .title_card{
+    margin-left:-12px;;
+  }
+.mat-list{
+  width: 500px;
+  margin: auto;
+}
+.mat-grid{
+  width:250px;
+}

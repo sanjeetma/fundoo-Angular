@@ -1,0 +1,137 @@
+ 
+.div-mat-toolbar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.fundo-mat-toolbar{
+  background-color: white;
+}
+.div-img{
+  display: flex;
+  width:40px;
+  height:40px;
+  margin-left:6px;
+  padding-top: 30px;
+  
+  }
+  
+  .fundo-button{
+      margin-left:-16px;
+    }
+    .div-keep{
+      margin-left:2vw;
+    }
+    .div-search{
+      display: flex;
+      border-radius:10px;
+     // border: 2px solid #5f6368;
+     background-color: white;
+     width:650px;
+      height:50px;
+      margin-left:8vw;
+    }
+    .input-search{
+      display: flex;
+      outline: none;
+width:550px;
+height:30px;
+border:1px solid white;
+}
+.example-sidenav {
+    //padding: 150px;
+  }
+  .example-container{
+   // display: flex;
+    position: absolute;;
+    top: 70px;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+    border: 1px solid rgb(224, 226, 69);
+    // background:rgb(112, 245, 123);
+  }
+  .mat-icon-refresh{
+   
+    margin-top:6px;
+    margin-left: 8vw;
+  }
+  .mat-icon-setting{
+    margin-top:8px;
+    margin-left: 1vw;
+  }
+  .mat-icon-apps{
+    margin-top:6px;
+    margin-left: 5vw;
+  }
+  .div-img-myself{
+    border-radius: 50%;
+  
+  width:40px;
+  height:40px;
+
+  }
+  .mat-icon-view_agenda{
+    margin-top:8px;
+    margin-left: 1vw;
+  }
+  .div-button-icon{
+width: 250px;
+  }
+  .bold-note{
+    margin-right: 100px;
+  
+  }
+  .p-label{
+    font-size: 12px;
+    margin-left: 20px;
+  }
+
+.example-card {
+  width:650px;
+      height:100px;
+}
+.button_all{
+  width:250px; 
+  border-top-right-radius:35px;
+  border-bottom-right-radius:35px;
+ height:50px;
+ outline: none;
+ margin-top:5px;
+}
+.button_all:focus{
+  background-color: rgb(238, 149, 117);
+}
+.button_allii{
+  outline: none;
+}
+
+.mat-stroked-button:not([disabled]) {
+  border-color: rgba(232, 235, 232, 0.12);
+}
+.maticon{
+margin-top: 10px;
+}
+.listlabel{
+padding-left: 40px;
+font-weight: bold;
+
+}
+.listdiv{
+  margin-top: 7px;
+}
+.matmenuImage{
+  width: 50px;;
+}
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,49 @@
+<div class="flex-container">
+        <div *ngFor="let list of notes">
+                <mat-card [style.background-color]="list.colour" class="matcard-box">
+                        <mat-card-header>
+                                <mat-card-title>
+                                        <span class="title_card"> {{list.title}} </span>
+                                </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                                <textarea matInput class="textarea_list" [style.background-color]="list.colour"
+                                        (click)="openDialog(list)" #autosize="cdkTextareaAutosize"
+                                        cdkTextareaAutosize>{{list.description}}</textarea>
+                        </mat-card-content>
+                        <div>
+
+
+
+                                <mat-chip-list (click)="deleteLabel()" *ngIf="removable">
+                                        <mat-chip *ngFor="let label of list.labelModel" [selectable]="selectable"
+                                                [removable]="removable" (removed)="onDelete(list,label)">
+                                                {{label.label}}
+                                                <mat-icon matChipRemove>cancel</mat-icon>
+                                        </mat-chip>
+                                </mat-chip-list>
+
+                        </div>
+                        <div class="note-toolbar">
+                                <div class="toolicon">
+                                    <button class="menuicon" mat-icon-button [matMenuTriggerFor]="menu1"
+                                        aria-label="Example icon-button with a menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu1="matMenu">
+                                        <button mat-menu-item (click)="deleteNote(list.noteId)">
+                                            <span>Delete note</span>
+                                        </button>
+                            
+                                        <button mat-menu-item (click)="addToTrash(list.noteId)">
+                                            <span>Restore</span>
+                                        </button>
+                                        </mat-menu>
+                                </div>  
+                            </div>
+                        
+                </mat-card>
+        </div>
+</div>
+
+

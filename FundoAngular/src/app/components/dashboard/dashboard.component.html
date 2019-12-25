@@ -1,0 +1,121 @@
+
+<div fxLayout="row" fxLayoutAlign="space-between center" class="div-mat-toolbar">
+    <mat-toolbar class="fundo-mat-toolbar">
+
+        <div>
+            <button mat-icon-button class="fundo-button" (click)="drawer.toggle()">
+                <mat-icon matSuffix>menu</mat-icon>
+            </button>
+        </div>
+        <div class="img-div">
+            <img class="div-img" mat-card-image src="/assets/image/keep.png">
+        </div>
+        <div class="div-keep">
+            Keep
+        </div>
+<mat-card>
+        <div class="div-search" fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-icon matSuffix class="divsearch" style="margin-left: 10px;">search</mat-icon>
+            <input class="input-search" matInput placeholder="search">
+            <mat-icon matSuffix style="margin-right: 10px;">clear</mat-icon>
+        </div>
+    </mat-card>
+         <!-- <div>
+             <!-- <mat-icon class="mat-icon-refresh" matSuffux>refresh</mat-icon>  -->
+            <!-- <button class="refresh" mat-icon-button matTooltip="refresh" (click)="refresh()">
+                <mat-icon>refresh</mat-icon>
+          </button> --> 
+        
+        <div class="icon" fxLayoutGap="20px">
+
+            <button class="refresh" mat-icon-button matTooltip="refresh" (click)="refresh()">
+                  <mat-icon>refresh</mat-icon>
+            </button>
+
+        
+        <button mat-icon-button (click)="changeView()">
+            <mat-icon *ngIf="isGrid">view_stream</mat-icon>
+            <mat-icon *ngIf="!isGrid">view_module</mat-icon>
+        </button>
+    </div>
+        <div>
+            <mat-icon class="mat-icon-setting" matSuffux>settings_applications</mat-icon>
+        </div>
+        <div>
+            <mat-icon class="mat-icon-apps" matSuffux>apps</mat-icon>
+        </div>
+        <div>
+            <button mat-button [matMenuTriggerFor]="beforeMenu">
+                    <img class="div-img-myself" src="/assets/image/adolf.jpeg">
+            </button>
+<mat-menu class="matmenuImage" #beforeMenu="matMenu" xPosition="before">
+ <div><img class="div-img-myself" src="/assets/image/adolf.jpeg"></div> 
+  <button mat-stroked-button>Add Account</button> 
+  <button mat-stroked-button (click)='logout()'>Log Out</button>
+</mat-menu>
+        </div>
+    </mat-toolbar>
+</div>
+<div>
+    <mat-drawer-container class="example-container">
+        <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+            <div>
+                <div>
+                    <div class="button_allii">
+                         <button class="button_all" mat-stroked-button (click)='notes()'>
+                                <div style="display: flex;">
+                           <div> <mat-icon class="maticon"><img src="/assets/icons/emoji_objects-24px.svg" /></mat-icon></div>
+                            <div class="listdiv"><span class="listlabel">Notes</span></div> 
+                        </div>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button mat-stroked-button class="button_all" (click)='reminderNote()'>
+                            <div style="display: flex;">
+                        <div>  <mat-icon class="maticon">notifications_none</mat-icon></div>
+                        <div class="listdiv"><span class="listlabel">Remainder</span></div> 
+                            </div>
+                    </button>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="div-button-icon">
+                <p class="p-label">LABEL</p>
+                <div  *ngFor="let list of labelList">
+                        <button mat-stroked-button class="button_all" (click)='sendMessage(list)'>
+                            <div style="display: flex;">
+                <div>  <mat-icon class="maticon"><img src="/assets/icons/label-24px.svg" /></mat-icon></div>
+                      <div class="listdiv"><span class="listlabel">{{list.label}}</span></div>  
+                    </div>
+                            </button>
+                            <div>
+                            </div>
+                    </div>
+                <button mat-stroked-button class="button_all" (click)='openDialog()'>
+                        <div style="display: flex;">
+                                <div ><mat-icon class="maticon">edit</mat-icon></div>
+                                <div class="listdiv"> <span class="listlabel">Edit labels</span></div>
+                    </div>
+                </button>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="div-button-icon">
+                <button mat-stroked-button class="button_all"  (click)='archivedNotes()'>
+                        <div style="display: flex;">
+                   <div> <mat-icon class="maticon">archive</mat-icon></div>
+                   <div class="listdiv"><span class="listlabel">Archive</span></div>
+                        </div>
+                </button>
+
+                <button mat-stroked-button class="button_all" (click)="trashNotes()">
+                        <div style="display: flex;">
+                                <div>   <mat-icon class="maticon">delete_outline</mat-icon></div>
+                                <div class="listdiv"><span class="listlabel">Trash</span></div>
+                        </div>
+                                </button>
+            </div>
+        </mat-drawer>
+        <router-outlet></router-outlet>
+    </mat-drawer-container>
+</div>

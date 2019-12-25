@@ -1,0 +1,84 @@
+<div>
+    <mat-card>
+        <form [formGroup]="registerForm">
+
+            <mat-card-header fxLayout="column" fxLayoutAlign="space-around center">
+                <mat-card-title fxLayoutAlign="center center">Register Page</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="enter first name" formControlName="firstName">
+                    <mat-icon matSuffix></mat-icon>
+                    <mat-error *ngIf="registerForm.get('firstName').hasError('required')">
+                        You must enter a value</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="enter last name" formControlName="lastName">
+                    <mat-icon matSuffix></mat-icon>
+                    <mat-error *ngIf="registerForm.get('lastName').hasError('required')">
+                        You must enter a value</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <select matNativeControl required formControlName="gender">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                        <option value="T">T</option>
+                    </select>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error *ngIf="registerForm.get('gender').hasError('required')">
+                        You must enter a value</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type='email' matInput placeholder="enter email" formControlName="email">
+                    <mat-icon matSuffix>mail_outline</mat-icon>
+                    <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                        You must enter a value</mat-error>
+                    <mat-error *ngIf="registerForm.get('email').hasError('email')">
+                        You must enter a valid email</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hide ? 'text' : 'password'" matInput placeholder="password at least 6 digit"
+                        formControlName="password">
+                        
+                    <button mat-icon-button matSuffix (click)="hide = !hide" >
+                        <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                    </button>
+               
+                    <mat-error *ngIf="registerForm.get('password').hasError('required')">
+                        You must enter a value</mat-error>
+                        <mat-error *ngIf="registerForm.get('password').hasError('pattern')">
+                            You must enter a value</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput placeholder="enter mobile number" formControlName="mobileNumber">
+                    <mat-icon matSuffix>phone_android</mat-icon>
+                    <mat-error *ngIf="registerForm.get('mobileNumber').hasError('required')">
+                        You must enter a value</mat-error>
+                    <mat-error *ngIf="registerForm.get('mobileNumber').hasError('pattern')">
+                        You must enter a valid mobile</mat-error>
+
+                </mat-form-field>
+
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <button mat-raised-button color="accent" (click)="onLogin()">Register</button>
+                    <!-- <nav>
+                        <a mat-raised-button color="primary" routerLink="/login" style="margin-left: 16px;">login</a>
+                    </nav> -->
+                </div>
+
+            </mat-card-content>
+        </form>
+    </mat-card>
+</div>

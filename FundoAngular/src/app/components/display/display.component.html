@@ -1,0 +1,39 @@
+<div class="flex-container" fxLayout="{{direction}}">
+        <div *ngFor="let list of notesList">
+                <mat-card [style.background-color]="list.colour" class="matcard-box" [ngClass]="direction === 'row' ? 'mat-grid' : 'mat-list'">
+                        <mat-card-header>
+                                <mat-card-title>
+                                        <span class="title_card"> {{list.title}} </span>
+                                </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                                <textarea matInput class="textarea_list" [style.background-color]="list.colour"
+                                        (click)="openDialog(list)" #autosize="cdkTextareaAutosize"
+                                        cdkTextareaAutosize>{{list.description}}</textarea>
+                        </mat-card-content>
+                        <div>
+                                <mat-chip-list *ngIf="removable" >
+                                        <mat-chip  *ngIf="list.remindMe!=null" [selectable]="selectable"
+                                        [removable]="removable" (removed)="deleteRemindMe(list)" >
+                                                {{list.remindMe |date: 'MMM, dd hh:mm a'}}
+                                                
+                                                                <mat-icon matChipRemove>cancel</mat-icon>
+                                        </mat-chip>
+                                        <mat-chip *ngFor="let label of list.labelModel" 
+                                                 (removed)="onDelete(list,label)">
+                                                {{label.label}}
+                                                <mat-icon matChipRemove>cancel</mat-icon>
+                                        </mat-chip>
+                                </mat-chip-list>
+                                
+                        </div>
+                        <div class='note-toolbar'>
+                                <app-toolbar [noteData]="list"></app-toolbar>
+                        </div>
+                        <div>
+
+                        </div>
+                </mat-card>
+               
+        </div>
+</div>
